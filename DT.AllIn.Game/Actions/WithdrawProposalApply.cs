@@ -13,6 +13,8 @@ namespace DT.AllIn.Game.Actions
         {
             try
             {
+                Console.WriteLine("  -> Player {0} withdrawing a loan proposal", action.PlayerId);
+
                 LoanProposal proposal = state.Proposals[action.ProposalId];
                 if (proposal.PlayerId == action.PlayerId)
                 {

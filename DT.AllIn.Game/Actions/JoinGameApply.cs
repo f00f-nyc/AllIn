@@ -13,6 +13,7 @@ namespace DT.AllIn.Game.Actions
         {
             if (state.Players.Count != state.Settings.NumPlayers)
             {
+                Console.WriteLine("  -> Player {0}, Name: {1} joining the game", action.PlayerId, action.PlayerName);
                 Player player = new Player
                 {
                     Cash = state.Settings.StartMoney,
@@ -22,7 +23,7 @@ namespace DT.AllIn.Game.Actions
                     NumFactories = state.Settings.Factories,
                     PlayerId = action.PlayerId,
                     RecentWorkers = new List<int> { },
-                    ResearchLevel = 0,
+                    ResearchLevel = 1,
                     WorkerIds = new List<int> { }
                 };
 

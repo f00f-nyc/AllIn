@@ -104,6 +104,8 @@ namespace DT.AllIn.Game
             for (int i=0; i<game.Players.Count; i++)
             {
                 Player player = game.Players[i];
+                player.Income = 0m;
+
                 foreach (int workerId in player.WorkerIds)
                 {
                     Worker worker = game.Workers[workerId];
@@ -111,7 +113,7 @@ namespace DT.AllIn.Game
 
                     if (worker.Job == Job.Factory)
                     {
-                        player.Cash += percent * player.NumFactories * player.ResearchLevel;
+                        player.Income += percent * player.NumFactories * player.ResearchLevel;
                     }
                     else if (worker.Job == Job.Research)
                     {
@@ -123,6 +125,8 @@ namespace DT.AllIn.Game
                         }
                     }
                 }
+
+                player.Cash += player.Income;
                 game.Players[i] = player;
             }
 
@@ -131,7 +135,7 @@ namespace DT.AllIn.Game
 
         private static BoardState TickLoans(BoardState game, TimeSpan tick)
         {
-            if (game.Proposals[0].PlayerId != -1)
+            if ((game.Proposals.Count == 0) || (game.Proposals[0].PlayerId != -1))
             {
                 game.Proposals.Insert(0, new LoanProposal
                 {

@@ -13,6 +13,8 @@ namespace DT.AllIn.Game.Actions
         {
             if (state.State == GameState.Started)
             {
+                Console.WriteLine("  -> Player {0} gifiting player {1}, amount: {2}", action.PlayerId, action.ToPlayerId, action.GiftAmount);
+
                 Player giver = state.Players[action.PlayerId];
                 Player receiver = state.Players[action.ToPlayerId];
 

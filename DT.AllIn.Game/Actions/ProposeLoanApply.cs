@@ -11,6 +11,8 @@ namespace DT.AllIn.Game.Actions
     {
         public override BoardState Apply(BoardState state, ProposeLoanAction action)
         {
+            Console.WriteLine("  -> Player {0} proposing a loan for amount {1}", action.PlayerId, action.LoanAmount);
+
             state.Proposals.Add(
                 new LoanProposal
                 {

@@ -13,6 +13,8 @@ namespace DT.AllIn.Game.Actions
         {
             if (state.State == GameState.Started)
             {
+                Console.WriteLine("  -> Assigning worker {0} job of {1}", action.WorkerId, action.Work);
+
                 if (state.Players[action.PlayerId].WorkerIds.Contains(action.WorkerId))
                 {
                     state.Workers[action.WorkerId].Job = action.Work;

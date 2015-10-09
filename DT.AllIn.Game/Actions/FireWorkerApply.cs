@@ -13,6 +13,8 @@ namespace DT.AllIn.Game.Actions
         {
             if (state.State == GameState.Started)
             {
+                Console.WriteLine("  -> Player {0} firing a worker", action.PlayerId);
+
                 Player player = state.Players[action.PlayerId];
                 decimal highestWage = -1m;
                 int highestWageId = -1;

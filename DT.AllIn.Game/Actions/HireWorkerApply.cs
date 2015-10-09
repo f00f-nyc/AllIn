@@ -23,6 +23,8 @@ namespace DT.AllIn.Game.Actions
         {
             if (state.State == GameState.Started)
             {
+                Console.WriteLine("  -> Player {0} hiring a worker", action.PlayerId);
+
                 Player player = state.Players[action.PlayerId];
                 var workers = HireWorkerApply
                     .Range(state.Workers.Length)
